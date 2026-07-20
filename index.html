@@ -1,0 +1,2648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOCTURNE PRO MAX - Awwwards Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Clash+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load CDN Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.waves.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+    <div id="vanta-bg"></div>
+    <!-- Massive SVG Filters Defs -->
+    <svg style="display:none;">
+        <defs>
+            <filter id="gooey">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey" />
+                <feBlend in="SourceGraphic" in2="gooey" />
+            </filter>
+            <!-- Many more filters could be added here -->
+        </defs>
+    </svg>
+    <div id="nocturne-app">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <h1 class="logo">NOCTURNE</h1>
+            <nav id="main-nav">
+                <button data-view="home">Home</button>
+                <button data-view="search">Search</button>
+                <button data-view="library">Library</button>
+                <button data-view="local">Local Vault</button>
+            </nav>
+            <div id="playlist-container">
+                <h3>Playlists</h3>
+                <ul id="user-playlists"></ul>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main id="viewport-router">
+            <section id="view-home" class="view-section active">
+                <h1 class="hero-title">Discover</h1>
+                <div class="track-grid" id="main-grid">
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/1/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 1 Masterpiece</h4>
+                            <p class="card-artist">Artist 1</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/2/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 2 Masterpiece</h4>
+                            <p class="card-artist">Artist 2</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/3/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 3 Masterpiece</h4>
+                            <p class="card-artist">Artist 3</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/4/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 4 Masterpiece</h4>
+                            <p class="card-artist">Artist 4</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/5/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 5 Masterpiece</h4>
+                            <p class="card-artist">Artist 5</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/6/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 6 Masterpiece</h4>
+                            <p class="card-artist">Artist 6</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/7/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 7 Masterpiece</h4>
+                            <p class="card-artist">Artist 7</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/8/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 8 Masterpiece</h4>
+                            <p class="card-artist">Artist 8</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/9/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 9 Masterpiece</h4>
+                            <p class="card-artist">Artist 9</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/10/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 10 Masterpiece</h4>
+                            <p class="card-artist">Artist 10</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/11/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 11 Masterpiece</h4>
+                            <p class="card-artist">Artist 11</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/12/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 12 Masterpiece</h4>
+                            <p class="card-artist">Artist 12</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/13/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 13 Masterpiece</h4>
+                            <p class="card-artist">Artist 13</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/14/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 14 Masterpiece</h4>
+                            <p class="card-artist">Artist 14</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/15/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 15 Masterpiece</h4>
+                            <p class="card-artist">Artist 15</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/16/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 16 Masterpiece</h4>
+                            <p class="card-artist">Artist 16</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/17/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 17 Masterpiece</h4>
+                            <p class="card-artist">Artist 17</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/18/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 18 Masterpiece</h4>
+                            <p class="card-artist">Artist 18</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/19/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 19 Masterpiece</h4>
+                            <p class="card-artist">Artist 19</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/20/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 20 Masterpiece</h4>
+                            <p class="card-artist">Artist 20</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/21/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 21 Masterpiece</h4>
+                            <p class="card-artist">Artist 21</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/22/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 22 Masterpiece</h4>
+                            <p class="card-artist">Artist 22</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/23/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 23 Masterpiece</h4>
+                            <p class="card-artist">Artist 23</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/24/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 24 Masterpiece</h4>
+                            <p class="card-artist">Artist 24</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/25/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 25 Masterpiece</h4>
+                            <p class="card-artist">Artist 25</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/26/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 26 Masterpiece</h4>
+                            <p class="card-artist">Artist 26</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/27/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 27 Masterpiece</h4>
+                            <p class="card-artist">Artist 27</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/28/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 28 Masterpiece</h4>
+                            <p class="card-artist">Artist 28</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/29/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 29 Masterpiece</h4>
+                            <p class="card-artist">Artist 29</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/30/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 30 Masterpiece</h4>
+                            <p class="card-artist">Artist 30</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/31/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 31 Masterpiece</h4>
+                            <p class="card-artist">Artist 31</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/32/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 32 Masterpiece</h4>
+                            <p class="card-artist">Artist 32</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/33/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 33 Masterpiece</h4>
+                            <p class="card-artist">Artist 33</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/34/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 34 Masterpiece</h4>
+                            <p class="card-artist">Artist 34</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/35/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 35 Masterpiece</h4>
+                            <p class="card-artist">Artist 35</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/36/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 36 Masterpiece</h4>
+                            <p class="card-artist">Artist 36</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/37/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 37 Masterpiece</h4>
+                            <p class="card-artist">Artist 37</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/38/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 38 Masterpiece</h4>
+                            <p class="card-artist">Artist 38</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/39/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 39 Masterpiece</h4>
+                            <p class="card-artist">Artist 39</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/40/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 40 Masterpiece</h4>
+                            <p class="card-artist">Artist 40</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/41/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 41 Masterpiece</h4>
+                            <p class="card-artist">Artist 41</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/42/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 42 Masterpiece</h4>
+                            <p class="card-artist">Artist 42</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/43/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 43 Masterpiece</h4>
+                            <p class="card-artist">Artist 43</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/44/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 44 Masterpiece</h4>
+                            <p class="card-artist">Artist 44</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/45/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 45 Masterpiece</h4>
+                            <p class="card-artist">Artist 45</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/46/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 46 Masterpiece</h4>
+                            <p class="card-artist">Artist 46</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/47/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 47 Masterpiece</h4>
+                            <p class="card-artist">Artist 47</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/48/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 48 Masterpiece</h4>
+                            <p class="card-artist">Artist 48</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/49/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 49 Masterpiece</h4>
+                            <p class="card-artist">Artist 49</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/50/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 50 Masterpiece</h4>
+                            <p class="card-artist">Artist 50</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/51/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 51 Masterpiece</h4>
+                            <p class="card-artist">Artist 51</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/52/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 52 Masterpiece</h4>
+                            <p class="card-artist">Artist 52</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/53/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 53 Masterpiece</h4>
+                            <p class="card-artist">Artist 53</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/54/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 54 Masterpiece</h4>
+                            <p class="card-artist">Artist 54</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/55/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 55 Masterpiece</h4>
+                            <p class="card-artist">Artist 55</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/56/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 56 Masterpiece</h4>
+                            <p class="card-artist">Artist 56</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/57/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 57 Masterpiece</h4>
+                            <p class="card-artist">Artist 57</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/58/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 58 Masterpiece</h4>
+                            <p class="card-artist">Artist 58</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/59/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 59 Masterpiece</h4>
+                            <p class="card-artist">Artist 59</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/60/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 60 Masterpiece</h4>
+                            <p class="card-artist">Artist 60</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/61/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 61 Masterpiece</h4>
+                            <p class="card-artist">Artist 61</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/62/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 62 Masterpiece</h4>
+                            <p class="card-artist">Artist 62</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/63/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 63 Masterpiece</h4>
+                            <p class="card-artist">Artist 63</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/64/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 64 Masterpiece</h4>
+                            <p class="card-artist">Artist 64</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/65/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 65 Masterpiece</h4>
+                            <p class="card-artist">Artist 65</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/66/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 66 Masterpiece</h4>
+                            <p class="card-artist">Artist 66</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/67/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 67 Masterpiece</h4>
+                            <p class="card-artist">Artist 67</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/68/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 68 Masterpiece</h4>
+                            <p class="card-artist">Artist 68</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/69/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 69 Masterpiece</h4>
+                            <p class="card-artist">Artist 69</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/70/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 70 Masterpiece</h4>
+                            <p class="card-artist">Artist 70</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/71/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 71 Masterpiece</h4>
+                            <p class="card-artist">Artist 71</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/72/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 72 Masterpiece</h4>
+                            <p class="card-artist">Artist 72</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/73/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 73 Masterpiece</h4>
+                            <p class="card-artist">Artist 73</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/74/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 74 Masterpiece</h4>
+                            <p class="card-artist">Artist 74</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/75/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 75 Masterpiece</h4>
+                            <p class="card-artist">Artist 75</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/76/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 76 Masterpiece</h4>
+                            <p class="card-artist">Artist 76</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/77/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 77 Masterpiece</h4>
+                            <p class="card-artist">Artist 77</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/78/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 78 Masterpiece</h4>
+                            <p class="card-artist">Artist 78</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/79/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 79 Masterpiece</h4>
+                            <p class="card-artist">Artist 79</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/80/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 80 Masterpiece</h4>
+                            <p class="card-artist">Artist 80</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/81/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 81 Masterpiece</h4>
+                            <p class="card-artist">Artist 81</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/82/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 82 Masterpiece</h4>
+                            <p class="card-artist">Artist 82</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/83/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 83 Masterpiece</h4>
+                            <p class="card-artist">Artist 83</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/84/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 84 Masterpiece</h4>
+                            <p class="card-artist">Artist 84</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/85/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 85 Masterpiece</h4>
+                            <p class="card-artist">Artist 85</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/86/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 86 Masterpiece</h4>
+                            <p class="card-artist">Artist 86</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/87/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 87 Masterpiece</h4>
+                            <p class="card-artist">Artist 87</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/88/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 88 Masterpiece</h4>
+                            <p class="card-artist">Artist 88</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/89/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 89 Masterpiece</h4>
+                            <p class="card-artist">Artist 89</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/90/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 90 Masterpiece</h4>
+                            <p class="card-artist">Artist 90</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/91/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 91 Masterpiece</h4>
+                            <p class="card-artist">Artist 91</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/92/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 92 Masterpiece</h4>
+                            <p class="card-artist">Artist 92</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/93/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 93 Masterpiece</h4>
+                            <p class="card-artist">Artist 93</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/94/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 94 Masterpiece</h4>
+                            <p class="card-artist">Artist 94</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/95/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 95 Masterpiece</h4>
+                            <p class="card-artist">Artist 95</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/96/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 96 Masterpiece</h4>
+                            <p class="card-artist">Artist 96</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/97/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 97 Masterpiece</h4>
+                            <p class="card-artist">Artist 97</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/98/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 98 Masterpiece</h4>
+                            <p class="card-artist">Artist 98</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/99/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 99 Masterpiece</h4>
+                            <p class="card-artist">Artist 99</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/100/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 100 Masterpiece</h4>
+                            <p class="card-artist">Artist 100</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/101/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 101 Masterpiece</h4>
+                            <p class="card-artist">Artist 101</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/102/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 102 Masterpiece</h4>
+                            <p class="card-artist">Artist 102</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/103/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 103 Masterpiece</h4>
+                            <p class="card-artist">Artist 103</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/104/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 104 Masterpiece</h4>
+                            <p class="card-artist">Artist 104</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/105/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 105 Masterpiece</h4>
+                            <p class="card-artist">Artist 105</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/106/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 106 Masterpiece</h4>
+                            <p class="card-artist">Artist 106</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/107/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 107 Masterpiece</h4>
+                            <p class="card-artist">Artist 107</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/108/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 108 Masterpiece</h4>
+                            <p class="card-artist">Artist 108</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/109/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 109 Masterpiece</h4>
+                            <p class="card-artist">Artist 109</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/110/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 110 Masterpiece</h4>
+                            <p class="card-artist">Artist 110</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/111/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 111 Masterpiece</h4>
+                            <p class="card-artist">Artist 111</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/112/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 112 Masterpiece</h4>
+                            <p class="card-artist">Artist 112</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/113/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 113 Masterpiece</h4>
+                            <p class="card-artist">Artist 113</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/114/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 114 Masterpiece</h4>
+                            <p class="card-artist">Artist 114</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/115/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 115 Masterpiece</h4>
+                            <p class="card-artist">Artist 115</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/116/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 116 Masterpiece</h4>
+                            <p class="card-artist">Artist 116</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/117/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 117 Masterpiece</h4>
+                            <p class="card-artist">Artist 117</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/118/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 118 Masterpiece</h4>
+                            <p class="card-artist">Artist 118</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/119/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 119 Masterpiece</h4>
+                            <p class="card-artist">Artist 119</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/120/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 120 Masterpiece</h4>
+                            <p class="card-artist">Artist 120</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/121/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 121 Masterpiece</h4>
+                            <p class="card-artist">Artist 121</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/122/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 122 Masterpiece</h4>
+                            <p class="card-artist">Artist 122</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/123/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 123 Masterpiece</h4>
+                            <p class="card-artist">Artist 123</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/124/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 124 Masterpiece</h4>
+                            <p class="card-artist">Artist 124</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/125/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 125 Masterpiece</h4>
+                            <p class="card-artist">Artist 125</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/126/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 126 Masterpiece</h4>
+                            <p class="card-artist">Artist 126</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/127/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 127 Masterpiece</h4>
+                            <p class="card-artist">Artist 127</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/128/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 128 Masterpiece</h4>
+                            <p class="card-artist">Artist 128</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/129/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 129 Masterpiece</h4>
+                            <p class="card-artist">Artist 129</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/130/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 130 Masterpiece</h4>
+                            <p class="card-artist">Artist 130</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/131/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 131 Masterpiece</h4>
+                            <p class="card-artist">Artist 131</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/132/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 132 Masterpiece</h4>
+                            <p class="card-artist">Artist 132</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/133/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 133 Masterpiece</h4>
+                            <p class="card-artist">Artist 133</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/134/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 134 Masterpiece</h4>
+                            <p class="card-artist">Artist 134</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/135/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 135 Masterpiece</h4>
+                            <p class="card-artist">Artist 135</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/136/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 136 Masterpiece</h4>
+                            <p class="card-artist">Artist 136</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/137/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 137 Masterpiece</h4>
+                            <p class="card-artist">Artist 137</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/138/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 138 Masterpiece</h4>
+                            <p class="card-artist">Artist 138</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/139/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 139 Masterpiece</h4>
+                            <p class="card-artist">Artist 139</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/140/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 140 Masterpiece</h4>
+                            <p class="card-artist">Artist 140</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/141/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 141 Masterpiece</h4>
+                            <p class="card-artist">Artist 141</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/142/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 142 Masterpiece</h4>
+                            <p class="card-artist">Artist 142</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/143/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 143 Masterpiece</h4>
+                            <p class="card-artist">Artist 143</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/144/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 144 Masterpiece</h4>
+                            <p class="card-artist">Artist 144</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/145/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 145 Masterpiece</h4>
+                            <p class="card-artist">Artist 145</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/146/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 146 Masterpiece</h4>
+                            <p class="card-artist">Artist 146</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/147/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 147 Masterpiece</h4>
+                            <p class="card-artist">Artist 147</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/148/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 148 Masterpiece</h4>
+                            <p class="card-artist">Artist 148</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/149/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 149 Masterpiece</h4>
+                            <p class="card-artist">Artist 149</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                    <div class="track-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <img src="https://picsum.photos/seed/150/300/300" class="card-art" crossorigin="anonymous">
+                        <div class="card-info">
+                            <h4 class="card-title">Track 150 Masterpiece</h4>
+                            <p class="card-artist">Artist 150</p>
+                        </div>
+                        <button class="card-play-btn magnetic-btn">▶</button>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+        
+        <!-- Drawers & Modals -->
+        <aside id="lyrics-drawer" class="glass-panel drawer">
+            <h2>Live Lyrics</h2>
+            <div id="lyrics-content"></div>
+        </aside>
+        
+        <aside id="queue-drawer" class="glass-panel drawer">
+            <h2>Up Next</h2>
+            <ul id="queue-list"></ul>
+        </aside>
+
+        <!-- Player Island -->
+        <footer id="dynamic-island-player" class="glass-panel">
+            <div class="player-left">
+                <img id="current-art" src="https://picsum.photos/300/300" crossorigin="anonymous">
+                <div class="info">
+                    <marquee id="current-title">Select a track</marquee>
+                    <span id="current-artist">System</span>
+                </div>
+            </div>
+            <div class="player-center">
+                <div class="controls">
+                    <button id="btn-prev" class="magnetic-btn">⏮</button>
+                    <button id="btn-play" class="magnetic-btn play">▶</button>
+                    <button id="btn-next" class="magnetic-btn">⏭</button>
+                </div>
+                <input type="range" id="seek-bar" min="0" max="100" value="0">
+            </div>
+            <div class="player-right">
+                <button id="btn-lyrics" class="magnetic-btn">📝</button>
+                <button id="btn-queue" class="magnetic-btn">☰</button>
+                <div class="speed-control">
+                    <button id="btn-speed" class="magnetic-btn">1.0x</button>
+                    <div class="speed-popover">
+                        <input type="range" id="speed-slider" min="0.5" max="2.0" step="0.05" value="1.0">
+                    </div>
+                </div>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Hidden Elements -->
+    <div id="yt-player-container" style="display:none;"></div>
+    
+    <!-- Load App -->
+    <script src="app.js"></script>
+</body>
+</html>
+
+<!-- Pre-rendered track skeleton 151 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-151">
+    <span>Hidden Track Title 151</span>
+    <span>Hidden Artist 151</span>
+</div>
+
+<!-- Pre-rendered track skeleton 152 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-152">
+    <span>Hidden Track Title 152</span>
+    <span>Hidden Artist 152</span>
+</div>
+
+<!-- Pre-rendered track skeleton 153 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-153">
+    <span>Hidden Track Title 153</span>
+    <span>Hidden Artist 153</span>
+</div>
+
+<!-- Pre-rendered track skeleton 154 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-154">
+    <span>Hidden Track Title 154</span>
+    <span>Hidden Artist 154</span>
+</div>
+
+<!-- Pre-rendered track skeleton 155 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-155">
+    <span>Hidden Track Title 155</span>
+    <span>Hidden Artist 155</span>
+</div>
+
+<!-- Pre-rendered track skeleton 156 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-156">
+    <span>Hidden Track Title 156</span>
+    <span>Hidden Artist 156</span>
+</div>
+
+<!-- Pre-rendered track skeleton 157 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-157">
+    <span>Hidden Track Title 157</span>
+    <span>Hidden Artist 157</span>
+</div>
+
+<!-- Pre-rendered track skeleton 158 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-158">
+    <span>Hidden Track Title 158</span>
+    <span>Hidden Artist 158</span>
+</div>
+
+<!-- Pre-rendered track skeleton 159 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-159">
+    <span>Hidden Track Title 159</span>
+    <span>Hidden Artist 159</span>
+</div>
+
+<!-- Pre-rendered track skeleton 160 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-160">
+    <span>Hidden Track Title 160</span>
+    <span>Hidden Artist 160</span>
+</div>
+
+<!-- Pre-rendered track skeleton 161 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-161">
+    <span>Hidden Track Title 161</span>
+    <span>Hidden Artist 161</span>
+</div>
+
+<!-- Pre-rendered track skeleton 162 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-162">
+    <span>Hidden Track Title 162</span>
+    <span>Hidden Artist 162</span>
+</div>
+
+<!-- Pre-rendered track skeleton 163 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-163">
+    <span>Hidden Track Title 163</span>
+    <span>Hidden Artist 163</span>
+</div>
+
+<!-- Pre-rendered track skeleton 164 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-164">
+    <span>Hidden Track Title 164</span>
+    <span>Hidden Artist 164</span>
+</div>
+
+<!-- Pre-rendered track skeleton 165 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-165">
+    <span>Hidden Track Title 165</span>
+    <span>Hidden Artist 165</span>
+</div>
+
+<!-- Pre-rendered track skeleton 166 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-166">
+    <span>Hidden Track Title 166</span>
+    <span>Hidden Artist 166</span>
+</div>
+
+<!-- Pre-rendered track skeleton 167 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-167">
+    <span>Hidden Track Title 167</span>
+    <span>Hidden Artist 167</span>
+</div>
+
+<!-- Pre-rendered track skeleton 168 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-168">
+    <span>Hidden Track Title 168</span>
+    <span>Hidden Artist 168</span>
+</div>
+
+<!-- Pre-rendered track skeleton 169 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-169">
+    <span>Hidden Track Title 169</span>
+    <span>Hidden Artist 169</span>
+</div>
+
+<!-- Pre-rendered track skeleton 170 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-170">
+    <span>Hidden Track Title 170</span>
+    <span>Hidden Artist 170</span>
+</div>
+
+<!-- Pre-rendered track skeleton 171 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-171">
+    <span>Hidden Track Title 171</span>
+    <span>Hidden Artist 171</span>
+</div>
+
+<!-- Pre-rendered track skeleton 172 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-172">
+    <span>Hidden Track Title 172</span>
+    <span>Hidden Artist 172</span>
+</div>
+
+<!-- Pre-rendered track skeleton 173 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-173">
+    <span>Hidden Track Title 173</span>
+    <span>Hidden Artist 173</span>
+</div>
+
+<!-- Pre-rendered track skeleton 174 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-174">
+    <span>Hidden Track Title 174</span>
+    <span>Hidden Artist 174</span>
+</div>
+
+<!-- Pre-rendered track skeleton 175 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-175">
+    <span>Hidden Track Title 175</span>
+    <span>Hidden Artist 175</span>
+</div>
+
+<!-- Pre-rendered track skeleton 176 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-176">
+    <span>Hidden Track Title 176</span>
+    <span>Hidden Artist 176</span>
+</div>
+
+<!-- Pre-rendered track skeleton 177 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-177">
+    <span>Hidden Track Title 177</span>
+    <span>Hidden Artist 177</span>
+</div>
+
+<!-- Pre-rendered track skeleton 178 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-178">
+    <span>Hidden Track Title 178</span>
+    <span>Hidden Artist 178</span>
+</div>
+
+<!-- Pre-rendered track skeleton 179 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-179">
+    <span>Hidden Track Title 179</span>
+    <span>Hidden Artist 179</span>
+</div>
+
+<!-- Pre-rendered track skeleton 180 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-180">
+    <span>Hidden Track Title 180</span>
+    <span>Hidden Artist 180</span>
+</div>
+
+<!-- Pre-rendered track skeleton 181 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-181">
+    <span>Hidden Track Title 181</span>
+    <span>Hidden Artist 181</span>
+</div>
+
+<!-- Pre-rendered track skeleton 182 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-182">
+    <span>Hidden Track Title 182</span>
+    <span>Hidden Artist 182</span>
+</div>
+
+<!-- Pre-rendered track skeleton 183 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-183">
+    <span>Hidden Track Title 183</span>
+    <span>Hidden Artist 183</span>
+</div>
+
+<!-- Pre-rendered track skeleton 184 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-184">
+    <span>Hidden Track Title 184</span>
+    <span>Hidden Artist 184</span>
+</div>
+
+<!-- Pre-rendered track skeleton 185 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-185">
+    <span>Hidden Track Title 185</span>
+    <span>Hidden Artist 185</span>
+</div>
+
+<!-- Pre-rendered track skeleton 186 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-186">
+    <span>Hidden Track Title 186</span>
+    <span>Hidden Artist 186</span>
+</div>
+
+<!-- Pre-rendered track skeleton 187 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-187">
+    <span>Hidden Track Title 187</span>
+    <span>Hidden Artist 187</span>
+</div>
+
+<!-- Pre-rendered track skeleton 188 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-188">
+    <span>Hidden Track Title 188</span>
+    <span>Hidden Artist 188</span>
+</div>
+
+<!-- Pre-rendered track skeleton 189 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-189">
+    <span>Hidden Track Title 189</span>
+    <span>Hidden Artist 189</span>
+</div>
+
+<!-- Pre-rendered track skeleton 190 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-190">
+    <span>Hidden Track Title 190</span>
+    <span>Hidden Artist 190</span>
+</div>
+
+<!-- Pre-rendered track skeleton 191 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-191">
+    <span>Hidden Track Title 191</span>
+    <span>Hidden Artist 191</span>
+</div>
+
+<!-- Pre-rendered track skeleton 192 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-192">
+    <span>Hidden Track Title 192</span>
+    <span>Hidden Artist 192</span>
+</div>
+
+<!-- Pre-rendered track skeleton 193 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-193">
+    <span>Hidden Track Title 193</span>
+    <span>Hidden Artist 193</span>
+</div>
+
+<!-- Pre-rendered track skeleton 194 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-194">
+    <span>Hidden Track Title 194</span>
+    <span>Hidden Artist 194</span>
+</div>
+
+<!-- Pre-rendered track skeleton 195 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-195">
+    <span>Hidden Track Title 195</span>
+    <span>Hidden Artist 195</span>
+</div>
+
+<!-- Pre-rendered track skeleton 196 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-196">
+    <span>Hidden Track Title 196</span>
+    <span>Hidden Artist 196</span>
+</div>
+
+<!-- Pre-rendered track skeleton 197 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-197">
+    <span>Hidden Track Title 197</span>
+    <span>Hidden Artist 197</span>
+</div>
+
+<!-- Pre-rendered track skeleton 198 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-198">
+    <span>Hidden Track Title 198</span>
+    <span>Hidden Artist 198</span>
+</div>
+
+<!-- Pre-rendered track skeleton 199 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-199">
+    <span>Hidden Track Title 199</span>
+    <span>Hidden Artist 199</span>
+</div>
+
+<!-- Pre-rendered track skeleton 200 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-200">
+    <span>Hidden Track Title 200</span>
+    <span>Hidden Artist 200</span>
+</div>
+
+<!-- Pre-rendered track skeleton 201 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-201">
+    <span>Hidden Track Title 201</span>
+    <span>Hidden Artist 201</span>
+</div>
+
+<!-- Pre-rendered track skeleton 202 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-202">
+    <span>Hidden Track Title 202</span>
+    <span>Hidden Artist 202</span>
+</div>
+
+<!-- Pre-rendered track skeleton 203 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-203">
+    <span>Hidden Track Title 203</span>
+    <span>Hidden Artist 203</span>
+</div>
+
+<!-- Pre-rendered track skeleton 204 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-204">
+    <span>Hidden Track Title 204</span>
+    <span>Hidden Artist 204</span>
+</div>
+
+<!-- Pre-rendered track skeleton 205 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-205">
+    <span>Hidden Track Title 205</span>
+    <span>Hidden Artist 205</span>
+</div>
+
+<!-- Pre-rendered track skeleton 206 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-206">
+    <span>Hidden Track Title 206</span>
+    <span>Hidden Artist 206</span>
+</div>
+
+<!-- Pre-rendered track skeleton 207 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-207">
+    <span>Hidden Track Title 207</span>
+    <span>Hidden Artist 207</span>
+</div>
+
+<!-- Pre-rendered track skeleton 208 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-208">
+    <span>Hidden Track Title 208</span>
+    <span>Hidden Artist 208</span>
+</div>
+
+<!-- Pre-rendered track skeleton 209 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-209">
+    <span>Hidden Track Title 209</span>
+    <span>Hidden Artist 209</span>
+</div>
+
+<!-- Pre-rendered track skeleton 210 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-210">
+    <span>Hidden Track Title 210</span>
+    <span>Hidden Artist 210</span>
+</div>
+
+<!-- Pre-rendered track skeleton 211 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-211">
+    <span>Hidden Track Title 211</span>
+    <span>Hidden Artist 211</span>
+</div>
+
+<!-- Pre-rendered track skeleton 212 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-212">
+    <span>Hidden Track Title 212</span>
+    <span>Hidden Artist 212</span>
+</div>
+
+<!-- Pre-rendered track skeleton 213 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-213">
+    <span>Hidden Track Title 213</span>
+    <span>Hidden Artist 213</span>
+</div>
+
+<!-- Pre-rendered track skeleton 214 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-214">
+    <span>Hidden Track Title 214</span>
+    <span>Hidden Artist 214</span>
+</div>
+
+<!-- Pre-rendered track skeleton 215 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-215">
+    <span>Hidden Track Title 215</span>
+    <span>Hidden Artist 215</span>
+</div>
+
+<!-- Pre-rendered track skeleton 216 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-216">
+    <span>Hidden Track Title 216</span>
+    <span>Hidden Artist 216</span>
+</div>
+
+<!-- Pre-rendered track skeleton 217 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-217">
+    <span>Hidden Track Title 217</span>
+    <span>Hidden Artist 217</span>
+</div>
+
+<!-- Pre-rendered track skeleton 218 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-218">
+    <span>Hidden Track Title 218</span>
+    <span>Hidden Artist 218</span>
+</div>
+
+<!-- Pre-rendered track skeleton 219 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-219">
+    <span>Hidden Track Title 219</span>
+    <span>Hidden Artist 219</span>
+</div>
+
+<!-- Pre-rendered track skeleton 220 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-220">
+    <span>Hidden Track Title 220</span>
+    <span>Hidden Artist 220</span>
+</div>
+
+<!-- Pre-rendered track skeleton 221 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-221">
+    <span>Hidden Track Title 221</span>
+    <span>Hidden Artist 221</span>
+</div>
+
+<!-- Pre-rendered track skeleton 222 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-222">
+    <span>Hidden Track Title 222</span>
+    <span>Hidden Artist 222</span>
+</div>
+
+<!-- Pre-rendered track skeleton 223 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-223">
+    <span>Hidden Track Title 223</span>
+    <span>Hidden Artist 223</span>
+</div>
+
+<!-- Pre-rendered track skeleton 224 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-224">
+    <span>Hidden Track Title 224</span>
+    <span>Hidden Artist 224</span>
+</div>
+
+<!-- Pre-rendered track skeleton 225 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-225">
+    <span>Hidden Track Title 225</span>
+    <span>Hidden Artist 225</span>
+</div>
+
+<!-- Pre-rendered track skeleton 226 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-226">
+    <span>Hidden Track Title 226</span>
+    <span>Hidden Artist 226</span>
+</div>
+
+<!-- Pre-rendered track skeleton 227 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-227">
+    <span>Hidden Track Title 227</span>
+    <span>Hidden Artist 227</span>
+</div>
+
+<!-- Pre-rendered track skeleton 228 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-228">
+    <span>Hidden Track Title 228</span>
+    <span>Hidden Artist 228</span>
+</div>
+
+<!-- Pre-rendered track skeleton 229 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-229">
+    <span>Hidden Track Title 229</span>
+    <span>Hidden Artist 229</span>
+</div>
+
+<!-- Pre-rendered track skeleton 230 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-230">
+    <span>Hidden Track Title 230</span>
+    <span>Hidden Artist 230</span>
+</div>
+
+<!-- Pre-rendered track skeleton 231 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-231">
+    <span>Hidden Track Title 231</span>
+    <span>Hidden Artist 231</span>
+</div>
+
+<!-- Pre-rendered track skeleton 232 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-232">
+    <span>Hidden Track Title 232</span>
+    <span>Hidden Artist 232</span>
+</div>
+
+<!-- Pre-rendered track skeleton 233 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-233">
+    <span>Hidden Track Title 233</span>
+    <span>Hidden Artist 233</span>
+</div>
+
+<!-- Pre-rendered track skeleton 234 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-234">
+    <span>Hidden Track Title 234</span>
+    <span>Hidden Artist 234</span>
+</div>
+
+<!-- Pre-rendered track skeleton 235 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-235">
+    <span>Hidden Track Title 235</span>
+    <span>Hidden Artist 235</span>
+</div>
+
+<!-- Pre-rendered track skeleton 236 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-236">
+    <span>Hidden Track Title 236</span>
+    <span>Hidden Artist 236</span>
+</div>
+
+<!-- Pre-rendered track skeleton 237 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-237">
+    <span>Hidden Track Title 237</span>
+    <span>Hidden Artist 237</span>
+</div>
+
+<!-- Pre-rendered track skeleton 238 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-238">
+    <span>Hidden Track Title 238</span>
+    <span>Hidden Artist 238</span>
+</div>
+
+<!-- Pre-rendered track skeleton 239 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-239">
+    <span>Hidden Track Title 239</span>
+    <span>Hidden Artist 239</span>
+</div>
+
+<!-- Pre-rendered track skeleton 240 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-240">
+    <span>Hidden Track Title 240</span>
+    <span>Hidden Artist 240</span>
+</div>
+
+<!-- Pre-rendered track skeleton 241 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-241">
+    <span>Hidden Track Title 241</span>
+    <span>Hidden Artist 241</span>
+</div>
+
+<!-- Pre-rendered track skeleton 242 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-242">
+    <span>Hidden Track Title 242</span>
+    <span>Hidden Artist 242</span>
+</div>
+
+<!-- Pre-rendered track skeleton 243 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-243">
+    <span>Hidden Track Title 243</span>
+    <span>Hidden Artist 243</span>
+</div>
+
+<!-- Pre-rendered track skeleton 244 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-244">
+    <span>Hidden Track Title 244</span>
+    <span>Hidden Artist 244</span>
+</div>
+
+<!-- Pre-rendered track skeleton 245 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-245">
+    <span>Hidden Track Title 245</span>
+    <span>Hidden Artist 245</span>
+</div>
+
+<!-- Pre-rendered track skeleton 246 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-246">
+    <span>Hidden Track Title 246</span>
+    <span>Hidden Artist 246</span>
+</div>
+
+<!-- Pre-rendered track skeleton 247 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-247">
+    <span>Hidden Track Title 247</span>
+    <span>Hidden Artist 247</span>
+</div>
+
+<!-- Pre-rendered track skeleton 248 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-248">
+    <span>Hidden Track Title 248</span>
+    <span>Hidden Artist 248</span>
+</div>
+
+<!-- Pre-rendered track skeleton 249 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-249">
+    <span>Hidden Track Title 249</span>
+    <span>Hidden Artist 249</span>
+</div>
+
+<!-- Pre-rendered track skeleton 250 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-250">
+    <span>Hidden Track Title 250</span>
+    <span>Hidden Artist 250</span>
+</div>
+
+<!-- Pre-rendered track skeleton 251 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-251">
+    <span>Hidden Track Title 251</span>
+    <span>Hidden Artist 251</span>
+</div>
+
+<!-- Pre-rendered track skeleton 252 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-252">
+    <span>Hidden Track Title 252</span>
+    <span>Hidden Artist 252</span>
+</div>
+
+<!-- Pre-rendered track skeleton 253 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-253">
+    <span>Hidden Track Title 253</span>
+    <span>Hidden Artist 253</span>
+</div>
+
+<!-- Pre-rendered track skeleton 254 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-254">
+    <span>Hidden Track Title 254</span>
+    <span>Hidden Artist 254</span>
+</div>
+
+<!-- Pre-rendered track skeleton 255 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-255">
+    <span>Hidden Track Title 255</span>
+    <span>Hidden Artist 255</span>
+</div>
+
+<!-- Pre-rendered track skeleton 256 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-256">
+    <span>Hidden Track Title 256</span>
+    <span>Hidden Artist 256</span>
+</div>
+
+<!-- Pre-rendered track skeleton 257 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-257">
+    <span>Hidden Track Title 257</span>
+    <span>Hidden Artist 257</span>
+</div>
+
+<!-- Pre-rendered track skeleton 258 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-258">
+    <span>Hidden Track Title 258</span>
+    <span>Hidden Artist 258</span>
+</div>
+
+<!-- Pre-rendered track skeleton 259 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-259">
+    <span>Hidden Track Title 259</span>
+    <span>Hidden Artist 259</span>
+</div>
+
+<!-- Pre-rendered track skeleton 260 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-260">
+    <span>Hidden Track Title 260</span>
+    <span>Hidden Artist 260</span>
+</div>
+
+<!-- Pre-rendered track skeleton 261 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-261">
+    <span>Hidden Track Title 261</span>
+    <span>Hidden Artist 261</span>
+</div>
+
+<!-- Pre-rendered track skeleton 262 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-262">
+    <span>Hidden Track Title 262</span>
+    <span>Hidden Artist 262</span>
+</div>
+
+<!-- Pre-rendered track skeleton 263 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-263">
+    <span>Hidden Track Title 263</span>
+    <span>Hidden Artist 263</span>
+</div>
+
+<!-- Pre-rendered track skeleton 264 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-264">
+    <span>Hidden Track Title 264</span>
+    <span>Hidden Artist 264</span>
+</div>
+
+<!-- Pre-rendered track skeleton 265 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-265">
+    <span>Hidden Track Title 265</span>
+    <span>Hidden Artist 265</span>
+</div>
+
+<!-- Pre-rendered track skeleton 266 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-266">
+    <span>Hidden Track Title 266</span>
+    <span>Hidden Artist 266</span>
+</div>
+
+<!-- Pre-rendered track skeleton 267 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-267">
+    <span>Hidden Track Title 267</span>
+    <span>Hidden Artist 267</span>
+</div>
+
+<!-- Pre-rendered track skeleton 268 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-268">
+    <span>Hidden Track Title 268</span>
+    <span>Hidden Artist 268</span>
+</div>
+
+<!-- Pre-rendered track skeleton 269 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-269">
+    <span>Hidden Track Title 269</span>
+    <span>Hidden Artist 269</span>
+</div>
+
+<!-- Pre-rendered track skeleton 270 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-270">
+    <span>Hidden Track Title 270</span>
+    <span>Hidden Artist 270</span>
+</div>
+
+<!-- Pre-rendered track skeleton 271 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-271">
+    <span>Hidden Track Title 271</span>
+    <span>Hidden Artist 271</span>
+</div>
+
+<!-- Pre-rendered track skeleton 272 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-272">
+    <span>Hidden Track Title 272</span>
+    <span>Hidden Artist 272</span>
+</div>
+
+<!-- Pre-rendered track skeleton 273 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-273">
+    <span>Hidden Track Title 273</span>
+    <span>Hidden Artist 273</span>
+</div>
+
+<!-- Pre-rendered track skeleton 274 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-274">
+    <span>Hidden Track Title 274</span>
+    <span>Hidden Artist 274</span>
+</div>
+
+<!-- Pre-rendered track skeleton 275 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-275">
+    <span>Hidden Track Title 275</span>
+    <span>Hidden Artist 275</span>
+</div>
+
+<!-- Pre-rendered track skeleton 276 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-276">
+    <span>Hidden Track Title 276</span>
+    <span>Hidden Artist 276</span>
+</div>
+
+<!-- Pre-rendered track skeleton 277 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-277">
+    <span>Hidden Track Title 277</span>
+    <span>Hidden Artist 277</span>
+</div>
+
+<!-- Pre-rendered track skeleton 278 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-278">
+    <span>Hidden Track Title 278</span>
+    <span>Hidden Artist 278</span>
+</div>
+
+<!-- Pre-rendered track skeleton 279 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-279">
+    <span>Hidden Track Title 279</span>
+    <span>Hidden Artist 279</span>
+</div>
+
+<!-- Pre-rendered track skeleton 280 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-280">
+    <span>Hidden Track Title 280</span>
+    <span>Hidden Artist 280</span>
+</div>
+
+<!-- Pre-rendered track skeleton 281 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-281">
+    <span>Hidden Track Title 281</span>
+    <span>Hidden Artist 281</span>
+</div>
+
+<!-- Pre-rendered track skeleton 282 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-282">
+    <span>Hidden Track Title 282</span>
+    <span>Hidden Artist 282</span>
+</div>
+
+<!-- Pre-rendered track skeleton 283 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-283">
+    <span>Hidden Track Title 283</span>
+    <span>Hidden Artist 283</span>
+</div>
+
+<!-- Pre-rendered track skeleton 284 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-284">
+    <span>Hidden Track Title 284</span>
+    <span>Hidden Artist 284</span>
+</div>
+
+<!-- Pre-rendered track skeleton 285 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-285">
+    <span>Hidden Track Title 285</span>
+    <span>Hidden Artist 285</span>
+</div>
+
+<!-- Pre-rendered track skeleton 286 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-286">
+    <span>Hidden Track Title 286</span>
+    <span>Hidden Artist 286</span>
+</div>
+
+<!-- Pre-rendered track skeleton 287 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-287">
+    <span>Hidden Track Title 287</span>
+    <span>Hidden Artist 287</span>
+</div>
+
+<!-- Pre-rendered track skeleton 288 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-288">
+    <span>Hidden Track Title 288</span>
+    <span>Hidden Artist 288</span>
+</div>
+
+<!-- Pre-rendered track skeleton 289 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-289">
+    <span>Hidden Track Title 289</span>
+    <span>Hidden Artist 289</span>
+</div>
+
+<!-- Pre-rendered track skeleton 290 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-290">
+    <span>Hidden Track Title 290</span>
+    <span>Hidden Artist 290</span>
+</div>
+
+<!-- Pre-rendered track skeleton 291 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-291">
+    <span>Hidden Track Title 291</span>
+    <span>Hidden Artist 291</span>
+</div>
+
+<!-- Pre-rendered track skeleton 292 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-292">
+    <span>Hidden Track Title 292</span>
+    <span>Hidden Artist 292</span>
+</div>
+
+<!-- Pre-rendered track skeleton 293 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-293">
+    <span>Hidden Track Title 293</span>
+    <span>Hidden Artist 293</span>
+</div>
+
+<!-- Pre-rendered track skeleton 294 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-294">
+    <span>Hidden Track Title 294</span>
+    <span>Hidden Artist 294</span>
+</div>
+
+<!-- Pre-rendered track skeleton 295 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-295">
+    <span>Hidden Track Title 295</span>
+    <span>Hidden Artist 295</span>
+</div>
+
+<!-- Pre-rendered track skeleton 296 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-296">
+    <span>Hidden Track Title 296</span>
+    <span>Hidden Artist 296</span>
+</div>
+
+<!-- Pre-rendered track skeleton 297 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-297">
+    <span>Hidden Track Title 297</span>
+    <span>Hidden Artist 297</span>
+</div>
+
+<!-- Pre-rendered track skeleton 298 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-298">
+    <span>Hidden Track Title 298</span>
+    <span>Hidden Artist 298</span>
+</div>
+
+<!-- Pre-rendered track skeleton 299 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-299">
+    <span>Hidden Track Title 299</span>
+    <span>Hidden Artist 299</span>
+</div>
+
+<!-- Pre-rendered track skeleton 300 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-300">
+    <span>Hidden Track Title 300</span>
+    <span>Hidden Artist 300</span>
+</div>
+
+<!-- Pre-rendered track skeleton 301 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-301">
+    <span>Hidden Track Title 301</span>
+    <span>Hidden Artist 301</span>
+</div>
+
+<!-- Pre-rendered track skeleton 302 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-302">
+    <span>Hidden Track Title 302</span>
+    <span>Hidden Artist 302</span>
+</div>
+
+<!-- Pre-rendered track skeleton 303 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-303">
+    <span>Hidden Track Title 303</span>
+    <span>Hidden Artist 303</span>
+</div>
+
+<!-- Pre-rendered track skeleton 304 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-304">
+    <span>Hidden Track Title 304</span>
+    <span>Hidden Artist 304</span>
+</div>
+
+<!-- Pre-rendered track skeleton 305 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-305">
+    <span>Hidden Track Title 305</span>
+    <span>Hidden Artist 305</span>
+</div>
+
+<!-- Pre-rendered track skeleton 306 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-306">
+    <span>Hidden Track Title 306</span>
+    <span>Hidden Artist 306</span>
+</div>
+
+<!-- Pre-rendered track skeleton 307 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-307">
+    <span>Hidden Track Title 307</span>
+    <span>Hidden Artist 307</span>
+</div>
+
+<!-- Pre-rendered track skeleton 308 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-308">
+    <span>Hidden Track Title 308</span>
+    <span>Hidden Artist 308</span>
+</div>
+
+<!-- Pre-rendered track skeleton 309 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-309">
+    <span>Hidden Track Title 309</span>
+    <span>Hidden Artist 309</span>
+</div>
+
+<!-- Pre-rendered track skeleton 310 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-310">
+    <span>Hidden Track Title 310</span>
+    <span>Hidden Artist 310</span>
+</div>
+
+<!-- Pre-rendered track skeleton 311 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-311">
+    <span>Hidden Track Title 311</span>
+    <span>Hidden Artist 311</span>
+</div>
+
+<!-- Pre-rendered track skeleton 312 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-312">
+    <span>Hidden Track Title 312</span>
+    <span>Hidden Artist 312</span>
+</div>
+
+<!-- Pre-rendered track skeleton 313 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-313">
+    <span>Hidden Track Title 313</span>
+    <span>Hidden Artist 313</span>
+</div>
+
+<!-- Pre-rendered track skeleton 314 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-314">
+    <span>Hidden Track Title 314</span>
+    <span>Hidden Artist 314</span>
+</div>
+
+<!-- Pre-rendered track skeleton 315 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-315">
+    <span>Hidden Track Title 315</span>
+    <span>Hidden Artist 315</span>
+</div>
+
+<!-- Pre-rendered track skeleton 316 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-316">
+    <span>Hidden Track Title 316</span>
+    <span>Hidden Artist 316</span>
+</div>
+
+<!-- Pre-rendered track skeleton 317 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-317">
+    <span>Hidden Track Title 317</span>
+    <span>Hidden Artist 317</span>
+</div>
+
+<!-- Pre-rendered track skeleton 318 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-318">
+    <span>Hidden Track Title 318</span>
+    <span>Hidden Artist 318</span>
+</div>
+
+<!-- Pre-rendered track skeleton 319 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-319">
+    <span>Hidden Track Title 319</span>
+    <span>Hidden Artist 319</span>
+</div>
+
+<!-- Pre-rendered track skeleton 320 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-320">
+    <span>Hidden Track Title 320</span>
+    <span>Hidden Artist 320</span>
+</div>
+
+<!-- Pre-rendered track skeleton 321 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-321">
+    <span>Hidden Track Title 321</span>
+    <span>Hidden Artist 321</span>
+</div>
+
+<!-- Pre-rendered track skeleton 322 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-322">
+    <span>Hidden Track Title 322</span>
+    <span>Hidden Artist 322</span>
+</div>
+
+<!-- Pre-rendered track skeleton 323 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-323">
+    <span>Hidden Track Title 323</span>
+    <span>Hidden Artist 323</span>
+</div>
+
+<!-- Pre-rendered track skeleton 324 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-324">
+    <span>Hidden Track Title 324</span>
+    <span>Hidden Artist 324</span>
+</div>
+
+<!-- Pre-rendered track skeleton 325 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-325">
+    <span>Hidden Track Title 325</span>
+    <span>Hidden Artist 325</span>
+</div>
+
+<!-- Pre-rendered track skeleton 326 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-326">
+    <span>Hidden Track Title 326</span>
+    <span>Hidden Artist 326</span>
+</div>
+
+<!-- Pre-rendered track skeleton 327 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-327">
+    <span>Hidden Track Title 327</span>
+    <span>Hidden Artist 327</span>
+</div>
+
+<!-- Pre-rendered track skeleton 328 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-328">
+    <span>Hidden Track Title 328</span>
+    <span>Hidden Artist 328</span>
+</div>
+
+<!-- Pre-rendered track skeleton 329 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-329">
+    <span>Hidden Track Title 329</span>
+    <span>Hidden Artist 329</span>
+</div>
+
+<!-- Pre-rendered track skeleton 330 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-330">
+    <span>Hidden Track Title 330</span>
+    <span>Hidden Artist 330</span>
+</div>
+
+<!-- Pre-rendered track skeleton 331 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-331">
+    <span>Hidden Track Title 331</span>
+    <span>Hidden Artist 331</span>
+</div>
+
+<!-- Pre-rendered track skeleton 332 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-332">
+    <span>Hidden Track Title 332</span>
+    <span>Hidden Artist 332</span>
+</div>
+
+<!-- Pre-rendered track skeleton 333 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-333">
+    <span>Hidden Track Title 333</span>
+    <span>Hidden Artist 333</span>
+</div>
+
+<!-- Pre-rendered track skeleton 334 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-334">
+    <span>Hidden Track Title 334</span>
+    <span>Hidden Artist 334</span>
+</div>
+
+<!-- Pre-rendered track skeleton 335 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-335">
+    <span>Hidden Track Title 335</span>
+    <span>Hidden Artist 335</span>
+</div>
+
+<!-- Pre-rendered track skeleton 336 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-336">
+    <span>Hidden Track Title 336</span>
+    <span>Hidden Artist 336</span>
+</div>
+
+<!-- Pre-rendered track skeleton 337 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-337">
+    <span>Hidden Track Title 337</span>
+    <span>Hidden Artist 337</span>
+</div>
+
+<!-- Pre-rendered track skeleton 338 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-338">
+    <span>Hidden Track Title 338</span>
+    <span>Hidden Artist 338</span>
+</div>
+
+<!-- Pre-rendered track skeleton 339 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-339">
+    <span>Hidden Track Title 339</span>
+    <span>Hidden Artist 339</span>
+</div>
+
+<!-- Pre-rendered track skeleton 340 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-340">
+    <span>Hidden Track Title 340</span>
+    <span>Hidden Artist 340</span>
+</div>
+
+<!-- Pre-rendered track skeleton 341 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-341">
+    <span>Hidden Track Title 341</span>
+    <span>Hidden Artist 341</span>
+</div>
+
+<!-- Pre-rendered track skeleton 342 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-342">
+    <span>Hidden Track Title 342</span>
+    <span>Hidden Artist 342</span>
+</div>
+
+<!-- Pre-rendered track skeleton 343 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-343">
+    <span>Hidden Track Title 343</span>
+    <span>Hidden Artist 343</span>
+</div>
+
+<!-- Pre-rendered track skeleton 344 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-344">
+    <span>Hidden Track Title 344</span>
+    <span>Hidden Artist 344</span>
+</div>
+
+<!-- Pre-rendered track skeleton 345 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-345">
+    <span>Hidden Track Title 345</span>
+    <span>Hidden Artist 345</span>
+</div>
+
+<!-- Pre-rendered track skeleton 346 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-346">
+    <span>Hidden Track Title 346</span>
+    <span>Hidden Artist 346</span>
+</div>
+
+<!-- Pre-rendered track skeleton 347 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-347">
+    <span>Hidden Track Title 347</span>
+    <span>Hidden Artist 347</span>
+</div>
+
+<!-- Pre-rendered track skeleton 348 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-348">
+    <span>Hidden Track Title 348</span>
+    <span>Hidden Artist 348</span>
+</div>
+
+<!-- Pre-rendered track skeleton 349 for SEO and static layout stability -->
+<div style="display:none;" class="seo-track" data-id="seo-349">
+    <span>Hidden Track Title 349</span>
+    <span>Hidden Artist 349</span>
+</div>
